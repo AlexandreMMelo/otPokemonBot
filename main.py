@@ -3,6 +3,8 @@ from time import sleep
 
 
 def main(battler):
+    from time import time
+    time_init = time()
     hknum = hkeys()
     poke_catched = 0
     catch_fish_position = find_fish()
@@ -16,7 +18,7 @@ def main(battler):
             while(clicked == False):
                 clicked = verify_fish(centered_catch_fish_position)
             poke_catched += 1
-            print('[+] NUMERO DE POKEMON PESCADO: '+ str(poke_catched) +' [+]')
+            #######
             attack(catch_battler_position, int(hknum)) 
         if color_battler != pyautogui.pixel(catch_battler_position.x, catch_battler_position.y):
             pyautogui.alert(text='Battler perdido, reinicie o bot', title='BATTLER LOST', button='OK')

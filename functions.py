@@ -21,11 +21,11 @@ def attack(coordinates, f):
     pyautogui.moveTo(coordinates.x-73, coordinates.y+34)
     sleep(0.5)
     pyautogui.click()
-    temp = pyautogui.pixelMatchesColor(coordinates.x-73, coordinates.y+34, (11, 17, 35), tolerance=10)
+    temp = pyautogui.pixelMatchesColor(coordinates.x-73, coordinates.y+34, (11, 17, 35))
     while temp == False:
         for i in range(f):
             pyautogui.hotkey(hotkeys[i])
-            if temp = pyautogui.pixelMatchesColor(coordinates.x-73, coordinates.y+34, (11, 17, 35), tolerance=10):
+            if temp = pyautogui.pixelMatchesColor(coordinates.x-73, coordinates.y+34, (11, 17, 35)):
                 return True
 
 
@@ -62,3 +62,14 @@ def hkeys():
     keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     temp = pyautogui.confirm(text=msg, title='BOT', buttons=keys)
     return temp
+
+
+def statistic(time_init, num_poke):
+    from time import time
+    
+    tempo = round(time() - time_init,3)
+    tmp = round(int(num_poke) / tempo, 2)
+    stat = str(tmp) + ' P/s'
+    poke_catched = 5-len(num_poke)*0 + str(num_poke)
+    msg = ('[+] POKEMONS PESCADOS: '+ poke_catched +' - '+stat+' [+]')  
+    return msg
