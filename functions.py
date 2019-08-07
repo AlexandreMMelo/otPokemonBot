@@ -58,6 +58,7 @@ def find_battler():
 
 
 def hkeys():
+    msg = 'quantos mov tem seu pokemon?'
     keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     temp = pyautogui.confirm(text=msg, title='BOT', buttons=keys)
     return temp
