@@ -18,7 +18,7 @@ def main(battler):
             while(clicked == False):
                 clicked = verify_fish(centered_catch_fish_position)
             poke_catched += 1
-            #######
+            print(statistic(time_init, poke_catched))
             attack(catch_battler_position, int(hknum)) 
         if color_battler != pyautogui.pixel(catch_battler_position.x, catch_battler_position.y):
             pyautogui.alert(text='Battler perdido, reinicie o bot', title='BATTLER LOST', button='OK')
