@@ -22,7 +22,6 @@ def main(battler):
             pyautogui.alert(text='Battler perdido, reinicie o bot', title='BATTLER LOST', button='OK')
             quit()            
 
-
 if iniciar() == 'INICIAR':
     catch_battler_position = find_battler()
     if catch_battler_position == None:
