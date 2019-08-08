@@ -1,0 +1,9 @@
+Instale a biblioteca pyautogui.
+
+Caso dê battler not found, tire um print e recorte a imagem de modo que fique igual a charles.png.
+
+Se der erro com as coordenadas da função de find_fish, subistitua a imagem do fish.png.
+
+É possivel que ele pense que ja matou o pokemon, caso isso aconteça, vc tera que mecher nos inteiros
+que são usados na função attack
+
