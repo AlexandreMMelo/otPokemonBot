@@ -17,21 +17,23 @@ def find_fish():
 
 
 def attack(coordinates, f):
-    hotkeys = ['f1','f2','f4','f4','f5','f6','f7','f8','f9','f10','f11','f12'] 
-    pyautogui.moveTo(coordinates.x-73, coordinates.y+34)
+    hotkeys = ['f1','f2','f3','f4','f5','f6','f7','f8','f9','f10','f11','f12'] 
+    pyautogui.moveTo(coordinates.x-72, coordinates.y+35)
     sleep(0.5)
     pyautogui.click()
-    temp = pyautogui.pixelMatchesColor(coordinates.x-73, coordinates.y+34, (11, 17, 35))
+    temp = pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35), tolerance=10)
     while temp == False:
         for i in range(f):
             pyautogui.hotkey(hotkeys[i])
-            if temp = pyautogui.pixelMatchesColor(coordinates.x-73, coordinates.y+34, (11, 17, 35)):
+            if pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35), tolerance=10):
                 return True
 
 
 def to_fish(coordinates):
+    from random import randint
+
     pyautogui.hotkey('shift', 'f1')
-    pyautogui.moveTo(coordinates.x+15, coordinates.y+15)
+    pyautogui.moveTo(coordinates.x+randint(-80, 80), coordinates.y+randint(-80,80))
     sleep(0.5)
     pyautogui.click()
     return True
@@ -70,6 +72,6 @@ def statistic(time_init, num_poke):
     tempo = round(time() - time_init,3)
     tmp = round(int(num_poke) / tempo, 2)
     stat = str(tmp) + ' P/s'
-    poke_catched = 5-len(num_poke)*0 + str(num_poke)
+    poke_catched =  (5-len(str(num_poke)))*'0' + str(num_poke)
     msg = ('[+] POKEMONS PESCADOS: '+ poke_catched +' - '+stat+' [+]')  
     return msg

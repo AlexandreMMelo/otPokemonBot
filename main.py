@@ -6,6 +6,7 @@ def main(battler):
     from time import time
     time_init = time()
     hknum = hkeys()
+    sleep(3)
     poke_catched = 0
     catch_fish_position = find_fish()
     centered_catch_fish_position = pyautogui.center(catch_fish_position)
