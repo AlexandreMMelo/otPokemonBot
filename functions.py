@@ -21,11 +21,11 @@ def attack(coordinates, f):
     pyautogui.moveTo(coordinates.x-72, coordinates.y+35)
     sleep(0.5)
     pyautogui.click()
-    temp = pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35), tolerance=10)
+    temp = pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35))
     while temp == False:
         for i in range(f):
             pyautogui.hotkey(hotkeys[i])
-            if pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35), tolerance=10):
+            if pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35)):
                 return True
 
 
