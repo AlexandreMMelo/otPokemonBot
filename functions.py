@@ -19,7 +19,6 @@ def find_fish():
 def attack(coordinates, f):
     hotkeys = ['f1','f2','f3','f4','f5','f6','f7','f8','f9','f10','f11','f12'] 
     pyautogui.moveTo(coordinates.x-72, coordinates.y+35)
-    sleep(0.5)
     pyautogui.click()
     temp = pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35))
     while temp == False:
@@ -34,7 +33,6 @@ def to_fish(coordinates):
 
     pyautogui.hotkey('shift', 'f1')
     pyautogui.moveTo(coordinates.x+randint(-80, 80), coordinates.y+randint(-80,80))
-    sleep(0.5)
     pyautogui.click()
     return True
 
@@ -50,7 +48,6 @@ def verify_fish(position_list):
 
 def click_to_catch_fish(position_list):
     pyautogui.moveTo(x=position_list.x, y=position_list.y)
-    sleep(0.5)
     pyautogui.click()
     return True
 
@@ -70,8 +67,8 @@ def statistic(time_init, num_poke):
     from time import time
     
     tempo = round(time() - time_init,3)
-    tmp = round(int(num_poke) / tempo, 2)
-    stat = str(tmp) + ' P/s'
+    tmp = (round(int(num_poke) / tempo, 2))*60
+    stat = str(tmp) + ' P/m'
     poke_catched =  (5-len(str(num_poke)))*'0' + str(num_poke)
     msg = ('[+] POKEMONS PESCADOS: '+ poke_catched +' - '+stat+' [+]')  
     return msg
