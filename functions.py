@@ -21,7 +21,10 @@ def find_fish():
 def attack(coordinates, f):
     hotkeys = ['f1','f2','f3','f4','f5','f6','f7','f8','f9','f10','f11','f12'] 
     pyautogui.moveTo(coordinates.x-72, coordinates.y+35)
-    pyautogui.click()
+
+    if(not check_attack(coordinates)):
+        pyautogui.click()
+
     temp = pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35))
     while temp == False:
         for i in range(f):
@@ -29,6 +32,10 @@ def attack(coordinates, f):
             if pyautogui.pixelMatchesColor(coordinates.x-72, coordinates.y+35, (11, 17, 35)):
                 return True
 
+def check_attack(coordinates):
+    if(pyautogui.pixelMatchesColor("COORDINATE.X BOX RED", "COORDINATE.Y BOX RED", ("RDG RED"))):
+        return True
+    return False
 
 def to_fish(coordinates):
     from random import randint
