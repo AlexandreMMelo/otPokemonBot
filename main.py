@@ -2,12 +2,12 @@ from functions import *
 from time import sleep
 
 
-def main(battler):
+def main(battler, no=0):
     from time import time
     time_init = time()
     hknum = hkeys()
     sleep(3)
-    poke_catched = 0
+    poke_catched = no
     catch_fish_position = find_fish()
     centered_catch_fish_position = pyautogui.center(catch_fish_position)
     catch_battler_position = pyautogui.center(battler)
@@ -22,14 +22,20 @@ def main(battler):
             print(statistic(time_init, poke_catched))
             attack(catch_battler_position, int(hknum)) 
         if color_battler != pyautogui.pixel(catch_battler_position.x, catch_battler_position.y):
-            pyautogui.alert(text='Battler perdido, reinicie o bot', title='BATTLER LOST', button='OK')
-            quit()            
+            temp = pyautogui.confirm(text='Battler perdido, reinicie o bot', title='BATTLER LOST', buttons=['Iniciar', 'Parar'])
+            if temp== 'Parar': quit()
+            else: main(battler, poke_catched)           
 
-if iniciar() == 'INICIAR':
+def init():
     catch_battler_position = find_battler()
     if catch_battler_position == None:
-        pyautogui.alert(text='Battler não encontrado\nAtive o batter e tente novamente', title='Battler 404', button='OK')
-        quit()
+        tmp = pyautogui.confirm(text='Battler não encontrado\nAtive o batter e tente novamente', title='Battler 404', buttons=['battler ativado', 'Sair'])
+        if tmp == 'Sair': quit()
+        else: init()
     main(catch_battler_position)
+
+
+if iniciar() == 'INICIAR': init()
+    
 else:
     quit()
