@@ -1,7 +1,9 @@
-import pyautogui
 from time import sleep
 
-def iniciar():
+import pyautogui
+
+
+def init():
     msg = '''
     1-Para pescar, ponha a barra de pesca sobre a agua.
     2-Deixe apenas os pokemons selvagens visiveis.
@@ -67,7 +69,7 @@ def statistic(time_init, num_poke):
     from time import time
     
     tempo = round(time() - time_init,3)
-    tmp = round((int(num_poke) / tempo)*60)
+    tmp = round(((int(num_poke) / tempo)*60),1)
     stat = str(tmp) + ' P/m'
     poke_catched =  (5-len(str(num_poke)))*'0' + str(num_poke)
     msg = ('[+] POKEMONS PESCADOS: '+ poke_catched +' - '+stat+' [+]')  
