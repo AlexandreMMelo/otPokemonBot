@@ -2,6 +2,8 @@ from functions import *
 from time import sleep
 import sys
 
+#import threading
+
 def main(battler):
     from time import time
     time_init = time()
@@ -21,6 +23,10 @@ def main(battler):
             poke_catched += 1
             print(statistic(time_init, poke_catched), end='\r')
             sys.stdout.flush()
+            """
+            thread_attack = threading.Thread(target=attack, args=(catch_battler_position, int(hknum),))
+            thread_attack.start()
+            """
             attack(catch_battler_position, int(hknum)) 
         if color_battler != pyautogui.pixel(catch_battler_position.x, catch_battler_position.y):
             pyautogui.alert(text='Battler perdido, reinicie o bot', title='BATTLER LOST', button='OK')
