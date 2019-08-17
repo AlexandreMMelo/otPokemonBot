@@ -41,7 +41,7 @@ def to_fish(coordinates):
 
 def verify_fish(position_list):
     rbg_color_catched_fish = (84,181,62) # Green
-    catched = pyautogui.pixelMatchesColor(position_list.x, position_list.y, rbg_color_catched_fish, tolerance=10)
+    catched = pyautogui.pixelMatchesColor(position_list.x, position_list.y, rbg_color_catched_fish, tolerance=4)
     if(catched):
         click_to_catch_fish(position_list)
         return True
