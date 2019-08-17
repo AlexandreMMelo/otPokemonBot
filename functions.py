@@ -33,7 +33,7 @@ def attack(coordinates, f):
                 return True
 
 def check_attack(coordinates):
-    if(pyautogui.pixelMatchesColor("COORDINATE.X BOX RED", "COORDINATE.Y BOX RED", ("RDG RED"))):
+    if(pyautogui.pixelMatchesColor(coordinates.x-61, coordinates.y+35, (100,0,0), tolerance=4)):
         return True
     return False
 
