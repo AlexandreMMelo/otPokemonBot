@@ -8,7 +8,7 @@ def init():
     1-Para pescar, ponha a barra de pesca sobre a agua.
     2-Deixe apenas os pokemons selvagens visiveis.
     3-Abra o jogo e inicie o bot
-    4-Apenas inicie o bot com o battler vasio'''
+    4-Apenas inicie o bot com o battler vazio'''
     temp = pyautogui.confirm(text=msg, title='BOT', buttons=['INICIAR', 'ABORTAR'])
     return temp
 
