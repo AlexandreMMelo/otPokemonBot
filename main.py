@@ -4,6 +4,7 @@ import sys
 
 import threading
 
+
 def main(battler):
     from time import time
     time_init = time()
@@ -14,28 +15,30 @@ def main(battler):
     centered_catch_fish_position = pyautogui.center(catch_fish_position)
     catch_battler_position = pyautogui.center(battler)
     color_battler = pyautogui.pixel(catch_battler_position.x, catch_battler_position.y)
-    while(True):
+    while (True):
         launch_rod = to_fish(centered_catch_fish_position)
-        if(launch_rod):
+        if (launch_rod):
             clicked = verify_fish(centered_catch_fish_position)
-            while(clicked == False):
+            while (clicked == False):
                 clicked = verify_fish(centered_catch_fish_position)
             poke_catched += 1
             print(statistic(time_init, poke_catched), end='\r')
             sys.stdout.flush()
-        
+
             thread_attack = threading.Thread(target=attack, args=(catch_battler_position, int(hknum),))
             thread_attack.start()
-        
-            #attack(catch_battler_position, int(hknum)) 
+
+            # attack(catch_battler_position, int(hknum))
         if color_battler != pyautogui.pixel(catch_battler_position.x, catch_battler_position.y):
             pyautogui.alert(text='Battler perdido, reinicie o bot', title='BATTLER LOST', button='OK')
-            quit()            
+            quit()
+
 
 if init() == 'INICIAR':
     catch_battler_position = find_battler()
     if catch_battler_position == None:
-        pyautogui.alert(text='Battler não encontrado\nAtive o batter e tente novamente', title='Battler 404', button='OK')
+        pyautogui.alert(text='Battler não encontrado\nAtive o batter e tente novamente', title='Battler 404',
+                        button='OK')
         quit()
     main(catch_battler_position)
 else:
